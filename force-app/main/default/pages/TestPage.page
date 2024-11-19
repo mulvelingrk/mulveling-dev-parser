@@ -1,0 +1,36 @@
+<apex:page controller="TestPageController">
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+  
+  <div>{!ISBLANK(nullStr)}</div>
+  <div>{!ISBLANK(emptyStr)}</div>
+  <div>{!ISBLANK(blankStr)}</div>
+  <div>{!ISBLANK(fooStr)}</div>
+  
+  <hr/>
+  
+  <div>Trim: {!ISBLANK(TRIM(nullStr))}</div>
+  <div>Trim: {!ISBLANK(TRIM(emptyStr))}</div>
+  <div>Trim: {!ISBLANK(TRIM(blankStr))}</div>
+  <div>Trim: {!ISBLANK(TRIM(fooStr))}</div>
+  
+  <hr/>
+  
+  <div>{!NOT(ISBLANK(nullStr))}</div>
+  <div>{!NOT(ISBLANK(emptyStr))}</div>
+  <div>{!NOT(ISBLANK(blankStr))}</div>
+  <div>{!NOT(ISBLANK(fooStr))}</div>
+  
+  <hr/>
+  
+  <script type="text/javascript">alert("Hello {!nullStr}");</script>
+  <div>{!nullStr}</div>
+  <div>{!emptyStr}</div>
+  <div>{!blankStr}</div>
+  <div>{!fooStr}</div>
+  
+  <apex:image title="{!someId}" value="/{!someId}" />
+  
+  
+</apex:page>

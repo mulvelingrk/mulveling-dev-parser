@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Phono_Stage__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>My Phono Stage</label>
+    <referenceTo>My_Phono_Stage__c</referenceTo>
+    <relationshipLabel>My Component Shadow</relationshipLabel>
+    <relationshipName>My_Component_Shadow</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

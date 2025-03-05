@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Table_Cartridge</fullName>
+    <active>true</active>
+    <label>Table-Cartridge</label>
+    <picklistValues>
+        <picklist>Amp_Configuration__c</picklist>
+        <values>
+            <fullName>Biamp Bass</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biamp Left</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biamp Right</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biamp Treble</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mono Left</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mono Left%2BRight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mono Right</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stereo Biwire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stereo Full Range</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Amp_Taps__c</picklist>
+        <values>
+            <fullName>16 ohms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 ohms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 ohms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8 ohms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SUT_Cable_Ground__c</picklist>
+        <values>
+            <fullName>Float Both</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ground Both</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ground Phono</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ground SUT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Ground</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tonearm_Cable_Ground__c</picklist>
+        <values>
+            <fullName>Floating</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Ground</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phono Stage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

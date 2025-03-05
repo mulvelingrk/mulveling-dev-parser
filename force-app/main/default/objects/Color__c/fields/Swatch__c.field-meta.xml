@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Swatch__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(&quot;https://dummyimage.com/40x40/&quot; &amp; Code__c &amp; &quot;/ffffff&amp;text=+&quot;, Code__c, 40, 40)</formula>
+    <label>Swatch</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intermediate__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Intermediate</label>
+    <referenceTo>System_Component__c</referenceTo>
+    <relationshipLabel>Intermediates</relationshipLabel>
+    <relationshipName>Intermediates</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

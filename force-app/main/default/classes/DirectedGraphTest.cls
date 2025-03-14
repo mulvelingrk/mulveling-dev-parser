@@ -1,7 +1,9 @@
+/*
+ * Mike Ulveling
+ */
 @isTest
 private class DirectedGraphTest {
     
-
     @IsTest
     static void buildPathsByCodes() {
         Harness testSet = new Harness();
@@ -145,35 +147,27 @@ private class DirectedGraphTest {
         Assert.isNull(pData.Parent_Level_4__c);
 
         Assert.areEqual(1, graph.queryCount);
+    }
 
-        /*
-        final String sep = ' 🡒 ';
-        DirectedGraph.Path p = paths.get(testSet.n('01').Id);
-        Assert.areEqual('01 🡒 A 🡒 I 🡒 R', p.ser(sep));
+    @IsTest
+    static void testHierFlatten() {
+        Harness harness = new Harness();
 
-        p = paths.get(testSet.n('04').Id);
-        Assert.areEqual('04 🡒 C 🡒 II 🡒 R', p.ser(sep));
+        HierFlatten flatten = HierFlatten.TargetSelf(Schema.Test_Hier__c.sObjectType, 'Code__c', 'Parent_Code__c')
+            .fillSelfLookup('Parent__c')
+            .fillLevelNumber('Level__c')
+            .fillAncestorLookupsFrom(8, 'Parent_Level_{0}__c');
+        
+        flatten.go(SOQLContext.newSystemMode().query('SELECT * FROM Test_Hier__c'));
+        harness.load();
 
-        p = paths.get(testSet.n('06').Id);
-        Assert.areEqual('06 🡒 C 🡒 II 🡒 R', p.ser(sep));
-
-        p = paths.get(testSet.n('07').Id);
-        Assert.areEqual('07 🡒 D 🡒 III 🡒 R', p.ser(sep));
-
-        p = paths.get(testSet.n('08').Id);
-        Assert.areEqual('08 🡒 E 🡒 III 🡒 R', p.ser(sep));
-
-        p = paths.get(testSet.n('09').Id);
-        Assert.areEqual('09 🡒 E 🡒 III 🡒 R', p.ser(sep));
-
-        p = paths.get(testSet.n('20').Id);
-        Assert.areEqual('20 🡒 F 🡒 III 🡒 R', p.ser(sep));
-
-        p = paths.get(testSet.n('I').Id);
-        Assert.areEqual('I 🡒 R', p.ser(sep));
-        p = paths.get(testSet.n('A').Id);
-        Assert.areEqual('A 🡒 I 🡒 R', p.ser(sep));
-        */
+        Test_Hier__c n_07 = harness.n('07');
+        Assert.areEqual(4, n_07.Level__c);
+        Assert.areEqual(harness.n('D').Id, n_07.Parent__c);
+        Assert.areEqual(harness.n('R').Id, n_07.Parent_Level_1__c);
+        Assert.areEqual(harness.n('III').Id, n_07.Parent_Level_2__c);
+        Assert.areEqual(harness.n('D').Id, n_07.Parent_Level_3__c);
+        Assert.isNull(n_07.Parent_Level_4__c);
     }
 
     class Harness {
@@ -184,15 +178,24 @@ private class DirectedGraphTest {
             init();
         }
 
+        Harness load() {
+            this.loadHiers();
+            return this;
+        }
+
+        Harness loadHiers() {
+            this.nodesByCode = new Map<String, Test_Hier__c>();
+            for (Test_Hier__c hier : (Test_Hier__c[]) SOQLContext.newSystemMode()
+                    .query('SELECT * FROM Test_Hier__c')) {
+                nodesByCode.put(hier.Code__c, hier);
+            }
+            return this;
+        }
+
         Harness init() {
             initHiers();
             return this;
         }
-
-        //Harness load() {
-        //    loadHiers();
-        //    return this;
-        //}
 
         Test_Hier__c n(String code) {
             Test_Hier__c node = this.nodesByCode.get(code);

@@ -1,4 +1,6 @@
 /*
+ * Mike Ulveling
+ *
  * Builds directed graph of records (of homogenous Object type) based on a parent relationship. 
  * The parent relationship may be defined as either (a or b):
  *   a. A self-recursive lookup field on an Object. In this case, the lookup serves as {parentKey},
@@ -35,13 +37,13 @@
 public without sharing class DirectedGraph {
 
     public class Builder {
-        Schema.sObjectType objectType;
-        String primaryReferenceField;
-        String parentReferenceField;
-        String parentRelationship; // only populated when isLookupBased == true
-        Boolean isLookupBased;
-        Integer queryDataDepth;
-        String[] additionalSelects;
+        public Schema.sObjectType objectType;
+        public String primaryReferenceField;
+        public String parentReferenceField;
+        public String parentRelationship; // only populated when isLookupBased == true
+        public Boolean isLookupBased;
+        public Integer queryDataDepth;
+        public Set<String> additionalSelects;
 
         // Use this signature only for lookup-based parent relationships. The "Id" field is implied as primary key:
         public Builder(Schema.sObjectType objectType, String parentReferenceField) {
@@ -54,7 +56,7 @@ public without sharing class DirectedGraph {
             this.objectType = objectType;
             this.primaryReferenceField = primaryReferenceField;
             this.parentReferenceField = parentReferenceField;
-            this.additionalSelects = new String[]{};
+            this.additionalSelects = new Set<String>();
 
             if (objectType == null) {
                 throw new IllegalArgumentException('Object Type cannot be null');

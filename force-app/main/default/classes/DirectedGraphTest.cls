@@ -170,6 +170,9 @@ private class DirectedGraphTest {
         Assert.isNull(n_07.Parent_Level_4__c);
     }
 
+    // TODO: Test HierFlatten when targeting a child object...
+    // TODO: Test self-level writing when that scenario is allowed (no CIRCULAR_REFERENCE)...
+
     class Harness {
         Test_Hier__c[] newNodes;
         Map<String, Test_Hier__c> nodesByCode = new Map<String, Test_Hier__c>();

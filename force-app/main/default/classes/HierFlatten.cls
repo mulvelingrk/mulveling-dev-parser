@@ -323,6 +323,7 @@ public without sharing class HierFlatten {
                 // it would create a CIRCULAR_DEPENDENCY DML error. The 1st ancestor we can actually 
                 // write is the direct parent:
                 // TODO: allow self-level writing if the target field is a STRING:
+                // TODO: allow self-level writing if the target object is a child type:
                 if (lvl < levelNum) {
                     String ancestorField = this.ancestorLkpsByLevel.get(lvl);
                     Id ancestorId = ancestorsByLevel.get(lvl);
